@@ -1,6 +1,19 @@
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 
-def load_knowledge_base(csv_path = "knowledge_base.csv"):
-    df = pd.read_csv(csv_path)
-    return df["question"].tolist(), df["answer"].tolist()
+class EmbeddingEngine:
+    def __init__(self, csv_path = "knowledge_base.csv"):
+
+        #load csv
+        df = pd.read_csv(csv_path)
+        self.questions = df['question'].tolist()
+        self.answers = df['answer'].tolist()
+
+        #load embedding model
+        self.model = SentenceTransformer('all-MiniLM-L6-v2')
+
+        #precompute embeddings for all questions
+        self.question_embeddings = self.model.encode(self.questions)
+
+    def embed(self, text):
+        return self.model.encode([text])
