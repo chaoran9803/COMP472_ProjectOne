@@ -6,8 +6,8 @@ class EmbeddingEngine:
 
         #load csv
         df = pd.read_csv(csv_path)
-        self.questions = df['question'].tolist()
-        self.answers = df['answer'].tolist()
+        self.questions = df['question'].astype(str).tolist()
+        self.answers = df['answer'].astype(str).tolist()
 
         #load embedding model
         self.model = SentenceTransformer('all-MiniLM-L6-v2')
