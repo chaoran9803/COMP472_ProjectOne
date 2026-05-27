@@ -16,9 +16,9 @@ def main():
     print("Type 'quit' to exit.\n")
     
     while True:
-        user_input = input("You: ")
+        user_input = input("Your Question: ")
         if user_input.lower() == "quit":
-            print("Goodbye!")
+            print("Goodbye! Have a great day!")
             break
 
         # Sentiment analysis

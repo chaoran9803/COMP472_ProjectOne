@@ -10,6 +10,4 @@ class SentimentAnalyzer:
         #we need the .upper to match the statment in the main.py
         label = result['label'].upper()
         score = result['score']
-        if label == 'NEGATIVE' and score > 0.7:
-            score = 0.95
         return label, score
