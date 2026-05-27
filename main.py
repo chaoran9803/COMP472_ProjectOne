@@ -1,8 +1,6 @@
 from embedding import EmbeddingEngine
 from sentiment import SentimentAnalyzer
-from sklearn.metrics.pairwise import cosine_similarity
 from search import find_best_answer
-import numpy as np
 
 def check_escalation(label,score):
         if label == 'NEGATIVE' and score > 0.9:
@@ -10,16 +8,17 @@ def check_escalation(label,score):
         return None
 
 def main():
-    print("Welcome to the student support chatbot!")
-    print("Type 'quit' to exit.\n")
 
     engine = EmbeddingEngine()
     sentiment = SentimentAnalyzer()
 
+    print("\n Welcome to the student support chatbot!")
+    print("Type 'quit' to exit.\n")
+    
     while True:
-        user_input = input("You: ")
+        user_input = input("Your Question: ")
         if user_input.lower() == "quit":
-            print("Goodbye!")
+            print("Goodbye! Have a great day!")
             break
 
         # Sentiment analysis
@@ -33,8 +32,7 @@ def main():
 
         # Semantic search
         answer, sim = find_best_answer(engine, user_input)
-        print("Answer:", answer)
-        print()
+        print(f"Answer:{answer}\n")
 
 if __name__ == "__main__":
     main()
