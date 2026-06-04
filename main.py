@@ -2,9 +2,10 @@ from embedding import EmbeddingEngine
 from sentiment import SentimentAnalyzer
 from search import find_best_answer
 
+# Simple escalation logic based on sentiment analysis results
 def check_escalation(label,score):
         if label == 'NEGATIVE' and score > 0.9:
-            return "We recommend contacting a human advisor."
+            return "Please contact a human advisor."
         return None
 
 def main():
@@ -12,13 +13,14 @@ def main():
     engine = EmbeddingEngine()
     sentiment = SentimentAnalyzer()
 
-    print("\n Welcome to the student support chatbot!")
+    print("\n Welcome to the student support AI chatbot!")
     print("Type 'quit' to exit.\n")
     
+    # The loop will continue until the user types 'quit'
     while True:
         user_input = input("Your Question: ")
         if user_input.lower() == "quit":
-            print("Goodbye! Have a great day!")
+            print("Bye Bye butterfly!")
             break
 
         # Sentiment analysis

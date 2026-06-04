@@ -1,5 +1,5 @@
-import pandas as pd
-from sentence_transformers import SentenceTransformer
+import pandas as pd #use pandas to read csv file
+from sentence_transformers import SentenceTransformer #use sentence transformers to compute text embeddings
 
 class EmbeddingEngine:
     def __init__(self, csv_path = "knowledge_base.csv"):
