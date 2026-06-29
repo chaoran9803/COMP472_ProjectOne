@@ -36,5 +36,6 @@ def main():
         answer, sim = find_best_answer(engine, user_input)
         print(f"Answer:{answer}\n")
 
+# the main function will be called when the script is executed directly
 if __name__ == "__main__":
     main()
